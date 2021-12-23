@@ -2,6 +2,8 @@ from Flask import Flask
 from flask_restful import Api
 
 app = Flask(__name__)
-@app.route('/', methods=["GET"])
+@app.route('/get', methods=["GET"])
 def get_users():
-    return 'you can render your template'
+    all_users = Users.query.all()
+    results = users_schema.dump(all_users)
+    return jsonify(results)
