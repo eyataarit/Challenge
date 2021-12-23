@@ -9,5 +9,5 @@ DATABSE_URI='mysql+mysqlconnector://{user}:{password}@{server}/{database}'.forma
                                     user='root', password='', server='localhost', database='usersdb')
 
 engine = create_engine(DATABSE_URI)
-df.to_sql('users', con =engine)
+df.to_sql('users', con =engine, if_exists='append')
 #create table users thanks to the excel file
